@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@types/node": "^20.11.24"
+  },
+  "type": "commonjs",
+  "scripts": {
+    "start": "ts-node user_input.ts"
+  }  
+}
