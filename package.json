@@ -5,5 +5,8 @@
   "type": "commonjs",
   "scripts": {
     "start": "ts-node user_input.ts"
-  }  
+  },
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
 }

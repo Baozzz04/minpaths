@@ -1,5 +1,3 @@
-import { performance } from 'perf_hooks';
-
 function printSolution(dist: number[], V: number) {
     for(let i = 0; i < V; i++) console.log(i, dist[i]);
 }
@@ -16,8 +14,7 @@ function minDistance(dist: number[], sptSet: boolean[], V: number): number {
     return min_index;
 }
  
-
-function dijkstra(graph: number[][], src: number, V: number) {
+export function dijkstra(graph: number[][], src: number, V: number) {
     let dist = new Array(V);
     let visit = new Array(V);
      
@@ -40,21 +37,3 @@ function dijkstra(graph: number[][], src: number, V: number) {
     
     printSolution(dist, V);
 }
-
-var startTime = performance.now()
-
-let graph = [ [ 0, 4, 0, 0, 0, 0, 0, 8, 0 ],
-              [ 4, 0, 8, 0, 0, 0, 0, 11, 0 ],
-              [ 0, 8, 0, 7, 0, 4, 0, 0, 2 ],
-              [ 0, 0, 7, 0, 9, 14, 0, 0, 0],
-              [ 0, 0, 0, 9, 0, 10, 0, 0, 0 ],
-              [ 0, 0, 4, 14, 10, 0, 2, 0, 0],
-              [ 0, 0, 0, 0, 0, 2, 0, 1, 6 ],
-              [ 8, 11, 0, 0, 0, 0, 1, 0, 7 ],
-              [ 0, 0, 2, 0, 0, 0, 6, 7, 0 ] ]
-
-dijkstra(graph, 0, graph.length); 
-    
-var endTime = performance.now()
-
-console.log(`Call to doSomething took ${endTime - startTime} milliseconds`)
