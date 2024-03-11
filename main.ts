@@ -5,6 +5,7 @@ import { performance } from 'perf_hooks';
 import { BellmanFord } from './Bellman_Ford'
 // import { floydWarshall } from './Floyd_Warshall'
 // import { johnsonsAlgorithm } from './Johnson'
+import { shortestPathTopo } from './Topo_sort'
 
 // User input
 let stringCity = recordUserCities();
@@ -23,6 +24,12 @@ const A = [ [ 0, 4, 0, 0, 0, 0, 0, 8, 0 ],
             [ 8, 11, 0, 0, 0, 0, 1, 0, 7 ],
             [ 0, 0, 2, 0, 0, 0, 6, 7, 0 ] ]
 
+// Record the time taken for Topological sort to find the shortest path
+var startTimeTopo = performance.now();
+shortestPathTopo(A, 0);
+var endTimeTopo = performance.now()
+console.log(`Call to Topo-sort took ${endTimeTopo - startTimeTopo} milliseconds`)
+
 // Record the time taken for Dijkstra to find the shortest path
 var startTimeDijkstra = performance.now();
 dijkstra(A, 0, A.length);
@@ -35,10 +42,4 @@ BellmanFord(A, 0);
 var endTimeBF = performance.now()
 console.log(`Call to BellmanFord took ${endTimeBF - startTimeBF} milliseconds`)
 
-// Record the time taken for Floyd Warshall to find the shortest path
-// var startTimeFW = performance.now();
-// floydWarshall(A);
-// var endTimeFW = performance.now()
-// console.log(`Call to BellmanFord took ${endTimeFW - startTimeFW} milliseconds`)
-
-// Record the time taken for Johnson to find the shortest path
+// Divide into 2 parts: App Mobile, and research time taken
